@@ -1,30 +1,25 @@
-import madeira_feno
-import CENOURAS
-import ABOBORAS
-import GIRASSOL
+# import madeira_feno
+# import CENOURAS
+# import ABOBORAS
+# import GIRASSOL
 import COLHEITA
-
-
+from TOOLS import proxima_plantacao
 
 while True:
-	cenoura = num_items(Items.Carrot)
-	feno = num_items(Items.Hay)
-	madeira = num_items(Items.Wood)
-	abobora = num_items(Items.Pumpkin)
-	girassol  =  num_items(Items.Power)
-	
-	while girassol < 1000000:
-		GIRASSOL.girassol()
-		
 
-	if abobora < cenoura:
-		ABOBORAS.aboboras()
-	#if cenoura > 8000:
-		#ABOBORAS.aboboras()
+	for coluna in range(get_world_size()):
+		for linha in range(get_world_size()):
+			
+			proxima_plantacao()
+
+			move(North)
+		move(East)
 	
-	elif cenoura < feno and cenoura < madeira:
-	#ARAR.arar()
-		CENOURAS.cenouras()
-	else:
-		madeira_feno.madeira_feno()
-	
+
+
+	for petalas in range(15, 6, -1):
+		COLHEITA.colher_girassol(petalas)
+	# i = 15
+	# for i in range(9):
+	# 	petalas = 9 - i
+	# 	COLHEITA.colher_girassol(petalas)
